@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" media="all" href="./style/client.css">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+</head>
+
+<body>
+
+    <div id="container">
+        <div id="history-container">
+            <table id="history">
+            </table>
+        </div>
+        <div id="message-container">
+            <textarea id="message" onkeydown="onKeyDown(event)" placeholder="Type your message here"></textarea>
+        </div>
+        <div id="send-button" onclick="click_send()">SEND</div>
+        <div id="message-cover">Please reply the chatbot by selecting an option.</div>
+    </div>
+
+    <script src="./js/jquery.js"></script>
+    <script src="./js/chatbot.js"></script>
+    <script src="./js/chatbot_setting.js"></script>
+    <script src="./js/client.js"></script>
+
+</body>
+
+</html>

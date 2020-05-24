@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>CSCW 2020 Estimating Conversational Style</title>
+        <style>
+            body{margin:0px;}
+            #cspane { width:1000px; height: 100%; border-radius:4px; display:inline-block; }
+            #title {
+                background: #666666;
+                color:white;
+                text-align: center;
+                font-family: sans-serif;
+                height:150px;
+                width:100%;
+            }
+            #foot {
+                background: #666666;
+                color:white;
+                text-align: center;
+                font-family: sans-serif;
+                height:50px;
+                width:100%;
+            }
+            .button {
+                display: inline-block;
+                height: 30px;
+                line-height: 30px;
+                font-size: 14px;
+                width: 200px;
+                color: white;
+                background-color: #333333;
+                border-radius:5px;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                cursor: pointer;
+            }
+            .button:hover {
+                background: #666666;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="title">
+            <br/>
+            <h1 style="font-size:26px">Estimating Conversational Styles in Conversational Microtask Crowdsourcing</h1>
+            <p style="font-size:18px">CSCW 2020 Companion Page</p>
+        </div>
+
+        <div style="text-align: center; height:50px; width: 100%">
+            <p style="font-family:sans-serif">
+                Full-Text
+                <a href="./publication/cscw2020estimating.pdf" style="color:black">[PDF]</a>
+                |
+                Supplementary Material
+                <a href="./publication/cscw2020supplemental.pdf" style="color:black">[PDF]</a>
+                |
+                Project Page
+                <a href="https://github.com/qiusihang/convsty" style="color:black">[Code and Data]</a>
+            </p>
+        </div>
+
+        <div style="text-align: center; height:800px; width:100%;">
+            <object id="cspane" type="text/html" data="./ui/client.html?task=captcha&diff=1"></object>
+        </div>
+
+        <div style="text-align: center; height:100px; width:100%; font-family: sans-serif;">
+            <br>
+            Task type:
+            <div class="button" onclick="change_task('captcha')">CAPTCHA Recognition</div>
+            <div class="button" onclick="change_task('information')">Information Finding</div>
+            <br><br>
+            Difficulty:
+            <div class="button" onclick="change_diff(0)">Easy</div>
+            <div class="button" onclick="change_diff(1)">Medium</div>
+            <div class="button" onclick="change_diff(2)">Difficult</div>
+        </div>
+
+        <br>
+        <div id="foot">
+        </div>
+
+        <script>
+            var task = 'captcha';
+            var diff = 0;
+            var change_task = function(t) {
+                task = t;
+                update();
+            }
+            var change_diff = function(d) {
+                diff = d;
+                update();
+            }
+            var update = function() {
+                document.getElementById("cspane").data = "./ui/client.html?task="+task+"&diff="+diff;
+            }
+        </script>
+    </body>
+</html>
